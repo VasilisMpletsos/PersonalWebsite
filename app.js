@@ -12,6 +12,11 @@ const io = socketio(server);
 // Parse json automatixally
 app.use(bodyParser.json());
 
+//Sockets
+io.on('connect', (socket) => {
+  socket.emit('newVisitor');
+})
+
 //Listen to port 3000
 server.listen(3000,()=>{
   console.log('Server is listening on port 3000!');
