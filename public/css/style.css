@@ -12,7 +12,7 @@ body{
   padding-top: 4%;
 }
 
-li:hover{
+li.nav-item:hover{
   background-color: green;
 }
 
@@ -71,4 +71,23 @@ img.imgCarousel{
   text-align: center;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+}
+
+.left{
+  position: relative;
+  left: 3%;
+  text-align: justify;
+  width: 94%;
+  max-height: 90%;
+  font-size: 23px;
+  text-overflow: ellipsis;
+  overflow-y: auto;
+}
+
+.profile{
+  float: left;
+  width: 20%;
+  border-radius: 20px;
+  box-shadow:4px 4px 4px #00000094;
+  margin-right:5%;
 }
