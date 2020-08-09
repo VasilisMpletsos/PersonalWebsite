@@ -13,8 +13,14 @@ const io = socketio(server);
 app.use(bodyParser.json());
 
 //Sockets
+var visitors = 0;
 io.on('connect', (socket) => {
-  socket.emit('newVisitor');
+  visitors++;
+  io.emit('newVisitor',visitors);
+  socket.on('disconnect', () => {
+      visitors--;
+      io.emit('visitorLeft',visitors);
+   });
 })
 
 //Listen to port 3000

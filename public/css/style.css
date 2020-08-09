@@ -27,3 +27,9 @@ img.imgCarousel{
   height:inherit;
   object-fit: cover;
 }
+
+#countVisitors{
+  font-weight: bold;
+  color: white;
+  transition: opacity 2s ease-out;
+}
