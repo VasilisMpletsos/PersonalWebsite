@@ -2,6 +2,16 @@
   font-family: serif;
 }
 
+html {
+    height: 100%;
+}
+
+body{
+  height: 100%;
+  background-color: #000000;
+  padding-top: 4%;
+}
+
 li:hover{
   background-color: green;
 }
@@ -17,14 +27,14 @@ nav{
   width: 40px;
 }
 
-.carousel-item{
+.carousel,.carousel-inner,.carousel-item{
   width: 100%;
-  height: 800px;
+  height: 100%;
 }
 
 img.imgCarousel{
   width: 100%;
-  height:inherit;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -32,4 +42,33 @@ img.imgCarousel{
   font-weight: bold;
   color: white;
   transition: opacity 2s ease-out;
+}
+
+.section{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.main{
+  width: 90%;
+  height: 80%;
+  margin: auto;
+  background-color: #ffffff;
+  border-top: solid;
+  border-top-color: green;
+  border-top-width: thick;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 2px 4px 40px 0 rgba(255, 255, 255, 0.6);
+}
+
+.title {
+  position: relative;
+  background-color: green;
+  top: -4%;
+  text-align: center;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
