@@ -1,0 +1,29 @@
+*{
+  font-family: serif;
+}
+
+li:hover{
+  background-color: green;
+}
+
+nav{
+  font-size: 18px;
+}
+
+.logo{
+  border-radius: 4px;
+  filter: blur(5px);
+  filter: drop-shadow(2px 2px 4px #d8d1e25b);
+  width: 40px;
+}
+
+.carousel-item{
+  width: 100%;
+  height: 800px;
+}
+
+img.imgCarousel{
+  width: 100%;
+  height:inherit;
+  object-fit: cover;
+}
