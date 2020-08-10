@@ -2,10 +2,6 @@ const express = require('express');
 const http = require('http');
 const socketio = require('socket.io');
 const path = require('path');
-require('./database/mongoose.js');
-const Contact = require('./models/contact');
-
-console.log(Contact);
 
 //Create Server
 const app = express();
@@ -35,16 +31,6 @@ app.use(express.static(publicPath));
 //Basic Site
 app.get('/',(req,res)=>{
   res.redirect('html/index.html');
-})
-
-app.post('/contact',(req,res)=>{
-  console.log(req.body);
-  let contact = new Contact(req.body);
-  contact.save().then(()=>{
-    res.status(200).send('Your Form has beenn sent');
-  }).catch((e)=>{
-    res.status(400).send('Your Form has failed');
-  })
 })
 
 //Listen to port 3000
