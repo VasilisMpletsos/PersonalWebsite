@@ -5,6 +5,8 @@ const path = require('path');
 require('./database/mongoose.js');
 const Contact = require('./models/contact');
 
+console.log(Contact);
+
 //Create Server
 const app = express();
 const server = http.createServer(app);
@@ -36,6 +38,7 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/contact',(req,res)=>{
+  console.log(req.body);
   let contact = new Contact(req.body);
   contact.save().then(()=>{
     res.status(200).send('Your Form has beenn sent');
