@@ -8,6 +8,7 @@ const Contact = require('./models/contact');
 //Create Server
 const app = express();
 const server = http.createServer(app);
+const port = process.env.PORT || 3000;
 const io = socketio(server);
 
 // Parse json automatixally
@@ -24,11 +25,6 @@ io.on('connect', (socket) => {
       io.emit('visitorLeft',visitors);
    });
 })
-
-//Listen to port 3000
-server.listen(3000,()=>{
-  console.log('Server is listening on port 3000!');
-});
 
 //Use public folder
 const publicPath = path.join(__dirname,'public');
@@ -47,3 +43,8 @@ app.post('/contact',(req,res)=>{
     res.status(400).send('Your Form has failed');
   })
 })
+
+//Listen to port 3000
+server.listen(port,()=>{
+  console.log(`Server is listening on port ${port}!`);
+});
