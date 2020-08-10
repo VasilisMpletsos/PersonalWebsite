@@ -1,8 +1,9 @@
 const express = require('express');
 const http = require('http');
 const socketio = require('socket.io');
-const bodyParser = require('body-parser')
 const path = require('path');
+require('./database/mongoose.js');
+const Contact = require('./models/contact');
 
 //Create Server
 const app = express();
@@ -10,7 +11,8 @@ const server = http.createServer(app);
 const io = socketio(server);
 
 // Parse json automatixally
-app.use(bodyParser.json());
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 
 //Sockets
 var visitors = 0;
@@ -31,9 +33,17 @@ server.listen(3000,()=>{
 //Use public folder
 const publicPath = path.join(__dirname,'public');
 app.use(express.static(publicPath));
-console.log(publicPath);
 
 //Basic Site
 app.get('/',(req,res)=>{
   res.redirect('html/index.html');
+})
+
+app.post('/contact',(req,res)=>{
+  let contact = new Contact(req.body);
+  contact.save().then(()=>{
+    res.status(200).send('Your Form has beenn sent');
+  }).catch((e)=>{
+    res.status(400).send('Your Form has failed');
+  })
 })
